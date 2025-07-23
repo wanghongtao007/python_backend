@@ -6,7 +6,6 @@ triton_url = "localhost:8000"
 model_name = "openpom_model"
 
 smiles = ["CC(=O)OC1=CC=CC=C1C(=O)O"]
-#input_data = np.array(smiles, dtype=object).reshape(1, 1)
 input_data = np.array([s.encode("utf-8") for s in smiles], dtype=np.bytes_).reshape(len(smiles), 1)
 
 with httpclient.InferenceServerClient(triton_url) as client:
